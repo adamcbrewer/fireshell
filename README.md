@@ -1,6 +1,6 @@
 # Fireshell
 
-A front-end bootstrap with a modern workflow, which includes: Gulp, Bower, SASS, Autoprefixer, image optimisation with Imagemin, Modernizr, JS modules using Browserify and ES6 support using Babel.
+A front-end bootstrap with a modern workflow, which includes: Gulp, SASS, Autoprefixer, image optimisation with Imagemin, Modernizr, JS modules using Browserify and ES6 support using Babel.
 
 ## Your New Project
 
