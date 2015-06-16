@@ -6,14 +6,24 @@ A front-end bootstrap with a modern workflow, which includes: Gulp, Bower, SASS,
 
 Either make a fresh clone – or checkout the `master` branch and copy the content – to your new project directory. 
 
-**Make sure you remove the `.git` directory when you've done this**.
+**Make sure you remove the `.git` directory when you've done this**:
+
+```bash
+# might need sudo
+$ rm -R .git
+```
 
 Init your git repo and add the remote:
 
 ```bash
 $ git init 
+$ git add .
+$ git commit -m "Init"
+
 $ git remote add origin ssh://git@bitbucket.org/USER/REPO.git # BitBucket
 $ git remote add origin git@github.com:USER/REPO.git # GitHub
+
+$ git push -u origin master
 ```
 
 ## Getting Started
