@@ -85,7 +85,7 @@ $ gulp bump --major # X.0.0
 $ gulp bump --version=1.2.3
 ```
 
-### `$ gulp bump`
+### `$ gulp build`
 
 Empties and creates new, production-ready build files.
 
