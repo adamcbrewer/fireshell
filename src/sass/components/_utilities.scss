@@ -1,6 +1,4 @@
-/**
- * Clearfix
- */
+// Clearfix
 %clear {
     content: ' ';
     display: table;
@@ -17,19 +15,15 @@
     }
 }
 
-/**
- * Responsive Images
- */
+// Responsive Images
 %ri {
     > img { max-width: 100%; }
 }
 .u-ri {
     @extend %ri;
-    } // responsive image
+}
 
-/**
- * Image Replacement - HTML5BP
- */
+// Image Replacement - HTML5BP
 %ir {
     border: 0;
     font: 0/0 a;
@@ -38,4 +32,12 @@
 }
 .u-ir {
     @extend %ir;
+}
+
+// Preserve Pixels
+.u-preserve-px {
+    -ms-interpolation-mode: nearest-neighbor; // IE
+    image-rendering: -moz-crisp-edges; //FF
+    image-rendering: -webkit-optimize-contrast; // Safari
+    image-rendering: pixelated; // Chrome and Opera
 }
