@@ -1,7 +1,7 @@
 /**
  * modernizr.js
  *
- * Progressive enhancment. Nodernizr will scan all .js and .scss files
+ * Progressive enhancement. Modernizr will scan all .js and .scss files
  * for references to tests and include those in the build.
  *
  */

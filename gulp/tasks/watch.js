@@ -2,7 +2,7 @@
  * watch.js
  *
  * Consult config.js for files being watched.
- * The only exception is the task 'js:watch' which is handled by watchify
+ * The only exception is the task 'js:watchify' which is handled by watchify
  * within the javascript tasks file.
  *
  */

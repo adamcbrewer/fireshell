@@ -11,6 +11,6 @@ gulp.task('build', [
     'modernizr',
     'bower',
     'sass',
-    'images:optimize',
+    'images:build',
     'js'
 ]);

@@ -2,7 +2,7 @@
  * images.js
  *
  * Image optimisation for rasters (jpg, png, gif) and vectors.
- * COpy task for local development.
+ * Copy task for local development.
  *
  */
 'use strict';
@@ -43,7 +43,7 @@ gulp.task('images:raster', function () {
 
 });
 
-gulp.task('images:svg', function () {
+gulp.task('images:vector', function () {
 
     var pipeline = gulp.src(config.images.srcSvg)
         .pipe(imagemin({
@@ -64,7 +64,7 @@ gulp.task('images:svg', function () {
 
 });
 
-gulp.task('images:optimize', [
-    'images:svg',
+gulp.task('images:build', [
+    'images:vector',
     'images:raster'
 ]);

@@ -15,7 +15,7 @@ var tagVersion = require('gulp-tag-version');
 
 var fs = require('fs');
 
-gulp.task('bump-version', function () {
+gulp.task('bump:version', function () {
 
     var options = {};
 
@@ -43,7 +43,7 @@ gulp.task('bump-version', function () {
 
 });
 
-gulp.task('bump', ['bump-version'], function() {
+gulp.task('bump', ['bump:version'], function() {
 
     // The package file is cached by Gulp at runtime, so even after
     // bumping the version we still have to read it synchronously
