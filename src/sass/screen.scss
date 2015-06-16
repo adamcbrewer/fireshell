@@ -1,25 +1,14 @@
 //----------------------------------*\
-// CONFIG
+// CONFIG + SETTINGS + GLOBALS
 //----------------------------------*/
 
-@import '_vars.scss';
-@import '_fonts.scss';
+@import 'config/_vars.scss';
+@import 'config/_fonts.scss';
+@import 'config/_base.scss';
+@import 'config/_normalize.scss';
 
 //----------------------------------*\
-// MIXINS
-//----------------------------------*/
-
-@import 'mixins/_fontsize.scss';
-
-//----------------------------------*\
-// GLOBALS
-//----------------------------------*/
-
-@import 'globals/_normalize.scss';
-@import 'globals/_base.scss';
-
-//----------------------------------*\
-// COMPONENTS
+// UX COMPONENTS + MODULAR BITS
 //----------------------------------*/
 
 @import 'components/_utilities.scss';
@@ -27,20 +16,20 @@
 @import 'components/_inputs.scss';
 
 //----------------------------------*\
-// VIEWS
+// VIEWS + STRUCTURE
 //----------------------------------*/
 
 @import 'views/_layout.scss';
 
 //----------------------------------*\
-// MEDIA
+// MEDIA + PRINT
 //----------------------------------*/
 
 @import 'media/_media.scss';
 @import 'media/_print.scss';
 
 //----------------------------------*\
-// VENDOR
+// VENDOR + THIRD-PARTY
 //----------------------------------*/
 
 @import 'vendor/_vendor.scss';

@@ -29,10 +29,10 @@ html {
     touch-action: manipulation;
 }
 body {
-    font-family: $ff;
+    font-family: $f-family-base;
     background-color: $c-bg;
     color: $c-text;
-    @include font-size(1.4);
+    font-size: $f-size-base;
     font-weight: 300;
     line-height: 1.6;
 }
