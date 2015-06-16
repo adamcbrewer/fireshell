@@ -1,0 +1,19 @@
+/**
+ * index.js
+ *
+ * Auto-loads all gulp tasks within ./tasks
+ * Also handles arguments and environment settings which can be
+ * accessed throughout each of the tasks.
+ *
+ */
+'use strict';
+
+var gulp = require('gulp');
+var requireDir = require('require-dir');
+var tasks = requireDir('./tasks', { recurse: true });
+var gutil = require('gulp-util');
+
+// Specify arguments by double-dashing eg:
+// --production
+// --type=<type>
+gulp.args = gutil.env;
