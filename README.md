@@ -28,13 +28,11 @@ $ git push -u origin master
 
 ## Getting Started
 
-For a fresh clone, run:
+After freshly cloning run this command, which installs all the required NPM files and runs re-setup tasks:
 
 ```bash
 $ ./init.sh
 ```
-
-This should install all the required npm and bower files.
 
 ## Gulp / Tasks
 

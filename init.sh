@@ -1,2 +1,5 @@
 #!/bin/bash
-npm install && bower install
+echo "+ Installing NPM packages..."
+npm install
+
+echo "✔ Init completed"

@@ -7,6 +7,7 @@
 var pkg = require('../package.json');
 var dest = './app';
 var src = './src';
+var assets = dest + '/assets'
 
 module.exports = {
 
@@ -21,7 +22,7 @@ module.exports = {
     },
     sass: {
         src: src + '/sass/screen.scss',
-        dest: dest + '/assets/css/',
+        dest: assets + '/assets/css/',
         basename: 'styles',
         watch: src + '/sass/**/*',
         autoprefixer: {
@@ -36,7 +37,7 @@ module.exports = {
         }
     },
     js: {
-        dest: dest + '/assets/js',
+        dest: assets + '/assets/js',
         outputFilename: 'scripts.min.js',
         browserify: {
             entries: [
@@ -50,7 +51,7 @@ module.exports = {
             src + '/js/**/*.js',
             src + '/sass/**/*.scss',
         ],
-        dest: dest + '/assets/js',
+        dest: assets + '/assets/js',
         options: {
             cache : false,
             uglify : false,
@@ -72,7 +73,7 @@ module.exports = {
     images: {
         srcRaster: src + '/img/{./,**/}*.{jpg,jpeg,png,gif}',
         srcSvg: src + '/img/{./,**/}*.svg',
-        dest: dest + '/assets/img'
+        dest: assets + '/assets/img'
     },
     clean: {
         assets: [
