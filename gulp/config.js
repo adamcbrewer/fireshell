@@ -36,6 +36,10 @@ module.exports = {
             ]
         }
     },
+    fonts: {
+        src: src + '/fonts/*',
+        dest: assets + '/fonts/'
+    },
     js: {
         dest: assets + '/assets/js',
         outputFilename: 'scripts.min.js',

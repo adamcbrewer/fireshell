@@ -18,7 +18,7 @@ var stylestats = require('gulp-stylestats');
 var handleErrors = require('../util/handle-errors');
 var autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('sass', function () {
+gulp.task('sass', ['fonts'], function () {
 
     var pipeline = sass(config.sass.src, {
             style: 'expanded',
