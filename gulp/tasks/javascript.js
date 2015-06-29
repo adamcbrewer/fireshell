@@ -76,7 +76,6 @@ function bundlify() {
 
     var pipeline = w
 
-        .transform(babelify)
         .bundle()
 
         .on('error', gutil.log.bind(gutil, 'Browserify Error'))
@@ -99,6 +98,7 @@ function getWatchifyInstance () {
 
     if (!w) {
         w = watchify(browserify(options));
+        w.transform(babelify);
         w.on('update', bundlify);
         w.on('log', gutil.log);
     }
