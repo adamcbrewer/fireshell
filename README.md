@@ -4,7 +4,7 @@ A front-end bootstrap with a modern workflow, which includes: Gulp, SASS, Autopr
 
 ## Your New Project
 
-Either make a fresh clone – or checkout the `master` branch and copy the content – to your new project directory. 
+Either make a fresh clone – or checkout the `master` branch and copy the contents to your new project directory. 
 
 **Make sure you remove the `.git` directory when you've done this**:
 

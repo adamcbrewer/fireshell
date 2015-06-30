@@ -22,7 +22,7 @@ module.exports = {
     },
     sass: {
         src: src + '/sass/screen.scss',
-        dest: assets + '/assets/css/',
+        dest: assets + '/css/',
         basename: 'styles',
         watch: src + '/sass/**/*',
         autoprefixer: {
@@ -41,7 +41,7 @@ module.exports = {
         dest: assets + '/fonts/'
     },
     js: {
-        dest: assets + '/assets/js',
+        dest: assets + '/js',
         outputFilename: 'scripts.min.js',
         browserify: {
             entries: [
@@ -55,7 +55,7 @@ module.exports = {
             src + '/js/**/*.js',
             src + '/sass/**/*.scss',
         ],
-        dest: assets + '/assets/js',
+        dest: assets + '/js',
         options: {
             cache : false,
             uglify : false,
@@ -77,13 +77,13 @@ module.exports = {
     images: {
         srcRaster: src + '/img/{./,**/}*.{jpg,jpeg,png,gif}',
         srcSvg: src + '/img/{./,**/}*.svg',
-        dest: assets + '/assets/img'
+        dest: assets + '/img'
     },
     clean: {
         assets: [
-            dest + '/assets/css/*',
-            dest + '/assets/js/*',
-            dest + '/assets/img/*'
+            assets + '/css/*',
+            assets + '/js/*',
+            assets + '/img/*'
         ]
     },
     size: {
