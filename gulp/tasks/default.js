@@ -7,11 +7,11 @@
 'use strict';
 
 var gulp = require('gulp');
+var sequence = require('gulp-sequence');
 
-gulp.task('default', [
-    'clean',
+gulp.task('default', sequence(['clean'], [
     'modernizr',
     'sass',
     'images',
     'watch'
-]);
+]));
