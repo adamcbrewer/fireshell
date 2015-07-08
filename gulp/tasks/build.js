@@ -4,8 +4,8 @@
  */
 'use strict';
 
-var gulp = require('gulp');
-var sequence = require('gulp-sequence');
+import gulp from 'gulp';
+import sequence from 'gulp-sequence';
 
 gulp.task('build', sequence(['clean'], [
     'modernizr',

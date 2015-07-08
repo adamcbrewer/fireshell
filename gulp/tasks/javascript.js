@@ -8,36 +8,34 @@
  */
 'use strict';
 
-var gulp = require('gulp');
-var size = require('gulp-size');
-var gutil = require('gulp-util');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var config = require('../config.js');
-var assign = require('lodash').assign;
-var babelify = require('babelify');
-var watchify = require('watchify');
-var sourcemaps = require('gulp-sourcemaps');
-var browserify = require('browserify');
+import gulp from 'gulp';
+import size from 'gulp-size';
+import gutil from 'gulp-util';
+import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
+import config from '../config.js';
+import assign from 'lodash';
+import babelify from 'babelify';
+import watchify from 'watchify';
+import sourcemaps from 'gulp-sourcemaps';
+import browserify from 'browserify';
 
 // This ensures the following args properties are passed
 // into browserify as watchify requires them:
 // { cache: {}, packageCache: {} }
-var options = assign({}, watchify.args, config.js.browserify);
+const options = assign({}, watchify.args, config.js.browserify);
 
 // used for the watchify stream below
-var w;
+let w;
 
 
 /**
  * Single build using browserify and babelify.
  *
  */
-gulp.task('js', bundle);
+gulp.task('js', () => {
 
-function bundle () {
-
-    var pipeline = browserify(options)
+    let pipeline = browserify(options)
 
         .transform(babelify)
         .bundle()
@@ -60,7 +58,7 @@ function bundle () {
 
     return pipeline;
 
-};
+});
 
 
 /**
@@ -74,7 +72,7 @@ function bundlify() {
 
     w = w || getWatchifyInstance();
 
-    var pipeline = w
+    let pipeline = w
 
         .bundle()
 

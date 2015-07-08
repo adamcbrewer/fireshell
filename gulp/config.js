@@ -4,10 +4,11 @@
  */
 'use strict';
 
-var pkg = require('../package.json');
-var dest = './app';
-var src = './src';
-var assets = dest + '/assets'
+import pkg from '../package.json';
+
+const dest = './app';
+const src = './src';
+const assets = dest + '/assets'
 
 module.exports = {
 
@@ -82,8 +83,10 @@ module.exports = {
     clean: {
         assets: [
             assets + '/css/*',
-            assets + '/js/*',
             assets + '/img/*'
+        ],
+        js: [
+            assets + '/js/*',
         ]
     },
     size: {

@@ -6,21 +6,20 @@
  */
 'use strict';
 
-var gulp = require('gulp');
-var git = require('gulp-git');
-var bump = require('gulp-bump');
-var gutil = require('gulp-util');
-var config = require('../config.js');
-var tagVersion = require('gulp-tag-version');
+import gulp from 'gulp';
+import fs from 'fs';
+import git from 'gulp-git';
+import bump from 'gulp-bump';
+import gutil from 'gulp-util';
+import config from '../config.js';
+import tagVersion from 'gulp-tag-version';
 
-var fs = require('fs');
+gulp.task('bump:version', () => {
 
-gulp.task('bump:version', function () {
-
-    var options = {};
+    let options = {};
 
     // arguments: --type=(patch|minor|major)
-    var type = gulp.args.type || 'patch';
+    let type = gulp.args.type || 'patch';
 
     // if --type=<type> is not specified then either of
     // --patch|--minor|--major is accepted
@@ -35,7 +34,7 @@ gulp.task('bump:version', function () {
         options.type = type;
     }
 
-    var pipeline = gulp.src(config.bump.src)
+    let pipeline = gulp.src(config.bump.src)
         .pipe(bump(options))
         .pipe(gulp.dest('./'))
 
@@ -43,15 +42,14 @@ gulp.task('bump:version', function () {
 
 });
 
-gulp.task('bump', ['bump:version'], function() {
+gulp.task('bump', ['bump:version'], () => {
 
     // The package file is cached by Gulp at runtime, so even after
     // bumping the version we still have to read it synchronously
-    var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-    var versionRaw = pkg.version;
-    var version = 'v' + versionRaw;
+    let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+    let version = `v${pkg.version}`;
 
-    var pipeline = gulp.src('./package.json')
+    let pipeline = gulp.src('./package.json')
         .pipe(git.commit(version))
         .pipe(tagVersion());
 

@@ -7,12 +7,14 @@
  */
 'use strict';
 
-var gulp = require('gulp');
-var config = require('../config.js');
+import gulp from 'gulp';
+import config from '../config.js';
 
-gulp.task('fonts', function () {
+gulp.task('fonts', () => {
 
-    var pipeline = gulp.src(config.fonts.src)
+    let pipeline = gulp.src(config.fonts.src)
         .pipe(gulp.dest(config.fonts.dest));
+
+    return pipeline;
 
 });

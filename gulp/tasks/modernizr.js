@@ -7,15 +7,15 @@
  */
 'use strict';
 
-var gulp = require('gulp');
-var config = require('../config.js');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var modernizr = require('gulp-modernizr');
+import gulp from 'gulp';
+import config from '../config.js';
+import uglify from 'gulp-uglify';
+import rename from 'gulp-rename';
+import modernizr from 'gulp-modernizr';
 
-gulp.task('modernizr', function () {
+gulp.task('modernizr', () => {
 
-    var pipeline = gulp.src(config.modernizr.src)
+    let pipeline = gulp.src(config.modernizr.src)
         .pipe(modernizr(config.modernizr.options))
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))

@@ -8,10 +8,11 @@
  */
 'use strict';
 
-var gulp = require('gulp');
-var requireDir = require('require-dir');
-var tasks = requireDir('./tasks', { recurse: true });
-var gutil = require('gulp-util');
+import gulp from 'gulp';
+import gutil from 'gulp-util';
+import requireDir from 'require-dir';
+
+requireDir('./tasks', { recurse: true });
 
 // Specify arguments by double-dashing eg:
 // --production

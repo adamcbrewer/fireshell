@@ -8,10 +8,10 @@
  */
 'use strict';
 
-var gulp = require('gulp');
-var config = require('../config.js');
+import gulp from 'gulp';
+import config from '../config.js';
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
 
     gulp.watch(config.sass.watch, ['sass']);
 

@@ -6,13 +6,15 @@
  */
 'use strict';
 
-var del = require('del');
-var gulp = require('gulp');
-var config = require('../config.js');
+import del from 'del';
+import gulp from 'gulp';
+import config from '../config.js';
 
-gulp.task('clean:assets', function () {
+gulp.task('clean:assets', () => {
 
-    del(config.clean.assets);
+    for (let dirs in config.clean) {
+        del(config.clean[dirs]);
+    }
 
 });
 

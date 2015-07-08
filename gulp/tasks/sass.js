@@ -7,20 +7,20 @@
  */
 'use strict';
 
-var gulp = require('gulp');
-var size = require('gulp-size');
-var sass = require('gulp-ruby-sass');
-var config = require('../config.js');
-var rename = require('gulp-rename');
-var minifycss = require('gulp-minify-css');
-var sourcemaps = require('gulp-sourcemaps');
-var stylestats = require('gulp-stylestats');
-var handleErrors = require('../util/handle-errors');
-var autoprefixer = require('gulp-autoprefixer');
+import gulp from 'gulp';
+import size from 'gulp-size';
+import sass from 'gulp-ruby-sass';
+import config from '../config.js';
+import rename from 'gulp-rename';
+import minifycss from 'gulp-minify-css';
+import sourcemaps from 'gulp-sourcemaps';
+import stylestats from 'gulp-stylestats';
+import handleErrors from '../util/handle-errors';
+import autoprefixer from 'gulp-autoprefixer';
 
-gulp.task('sass', ['fonts'], function () {
+gulp.task('sass', ['fonts'], () => {
 
-    var pipeline = sass(config.sass.src, {
+    let pipeline = sass(config.sass.src, {
             style: 'expanded',
             sourcemap: true
         })

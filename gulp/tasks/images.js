@@ -7,14 +7,14 @@
  */
 'use strict';
 
-var gulp = require('gulp');
-var size = require('gulp-size');
-var config = require('../config.js');
-var imagemin = require('gulp-imagemin');
+import gulp from 'gulp';
+import size from 'gulp-size';
+import config from '../config.js';
+import imagemin from 'gulp-imagemin';
 
-gulp.task('images', function () {
+gulp.task('images', () => {
 
-    var pipeline = gulp.src([
+    let pipeline = gulp.src([
             config.images.srcRaster,
             config.images.srcSvg
         ])
@@ -24,9 +24,9 @@ gulp.task('images', function () {
 
 });
 
-gulp.task('images:raster', function () {
+gulp.task('images:raster', () => {
 
-    var pipeline = gulp.src(config.images.srcRaster)
+    let pipeline = gulp.src(config.images.srcRaster)
         .pipe(imagemin({
             optimizationLevel: 4,
             progressive: true,
@@ -43,9 +43,9 @@ gulp.task('images:raster', function () {
 
 });
 
-gulp.task('images:vector', function () {
+gulp.task('images:vector', () => {
 
-    var pipeline = gulp.src(config.images.srcSvg)
+    let pipeline = gulp.src(config.images.srcSvg)
         .pipe(imagemin({
             svgoPlugins: [
                 // More options here: https://github.com/svg/svgo
