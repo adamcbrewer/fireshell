@@ -14,7 +14,6 @@ import gutil from 'gulp-util';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import config from '../config.js';
-import assign from 'lodash';
 import babelify from 'babelify';
 import watchify from 'watchify';
 import sourcemaps from 'gulp-sourcemaps';
@@ -23,7 +22,7 @@ import browserify from 'browserify';
 // This ensures the following args properties are passed
 // into browserify as watchify requires them:
 // { cache: {}, packageCache: {} }
-const options = assign({}, watchify.args, config.js.browserify);
+const options = Object.assign({}, watchify.args, config.js.browserify);
 
 // used for the watchify stream below
 let w;
