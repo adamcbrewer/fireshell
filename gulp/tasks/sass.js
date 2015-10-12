@@ -9,7 +9,7 @@
 
 import gulp from 'gulp';
 import size from 'gulp-size';
-import sass from 'gulp-ruby-sass';
+import sass from 'gulp-sass';
 import config from '../config.js';
 import rename from 'gulp-rename';
 import minifycss from 'gulp-minify-css';
@@ -20,11 +20,13 @@ import autoprefixer from 'gulp-autoprefixer';
 
 gulp.task('sass', ['fonts'], () => {
 
-    let pipeline = sass(config.sass.src, {
-            style: 'expanded',
-            sourcemap: true
-        })
-        .on('error', handleErrors)
+    let pipeline = gulp.src(config.sass.src)
+
+        .pipe(sourcemaps.init())
+
+        .pipe(sass({
+            outputStyle: 'expanded'
+        }).on('error', sass.logError))
 
         // autoprefix, minify and sourcemaps
         .pipe(autoprefixer(config.sass.autoprefixer))
