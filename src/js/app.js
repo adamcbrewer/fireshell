@@ -1,18 +1,14 @@
 'use strict';
 
-global.Site = {
-    basePath: document.body.getAttribute('data-base-url'),
-    userAgent: navigator.userAgent,
-    platform: navigator.platform
-};
+import Site from './modules/site.js';
 
-/**
- * For importing any third-party libraries:
- *
- * In the terminal:
- * $ npm install --save jquery
- *
- * In this app:
- * global.$ = require('jquery');
- *
- */
+// Change this to match the project directory
+new Site('/');
+
+// For importing any third-party libraries:
+//
+// In the terminal:
+// $ npm install --save jquery
+//
+// In this app:
+// global.$ = require('jquery');
