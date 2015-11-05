@@ -40,3 +40,6 @@ $RECYCLE.BIN/
 temp
 app/assets/
 src/js/libs
+
+## Useful
+*.ignore.*
