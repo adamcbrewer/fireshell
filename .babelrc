@@ -1,0 +1,9 @@
+{
+    "plugins": [],
+    "presets": [
+        "es2015"
+    ],
+    "ignore": [],
+    "sourceMaps": true,
+    "comments": false
+}
