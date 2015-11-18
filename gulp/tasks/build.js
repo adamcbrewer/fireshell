@@ -7,9 +7,20 @@
 import gulp from 'gulp';
 import sequence from 'gulp-sequence';
 
-gulp.task('build', sequence(['clean'], [
+gulp.task('build', ['build:prod']);
+
+gulp.task('build:dev', sequence(['clean'], [
+    'templates',
     'modernizr',
     'sass',
-    'images:build',
+    'images:notoptimised',
+    'js'
+]));
+
+gulp.task('build:prod', sequence(['clean'], [
+    'templates',
+    'modernizr',
+    'sass',
+    'images:optimised',
     'js'
 ]));

@@ -9,9 +9,6 @@
 import gulp from 'gulp';
 import sequence from 'gulp-sequence';
 
-gulp.task('default', sequence(['clean'], [
-    'modernizr',
-    'sass',
-    'images',
+gulp.task('default', sequence(['build:dev'], [
     'watch'
 ]));

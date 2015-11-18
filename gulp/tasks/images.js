@@ -12,7 +12,9 @@ import size from 'gulp-size';
 import config from '../config.js';
 import imagemin from 'gulp-imagemin';
 
-gulp.task('images', () => {
+gulp.task('images', ['images:optimised']);
+
+gulp.task('images:notoptimised', () => {
 
     let pipeline = gulp.src([
             config.images.srcRaster,
@@ -64,7 +66,7 @@ gulp.task('images:vector', () => {
 
 });
 
-gulp.task('images:build', [
+gulp.task('images:optimised', [
     'images:vector',
     'images:raster'
 ]);

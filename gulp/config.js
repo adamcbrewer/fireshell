@@ -16,6 +16,24 @@ module.exports = {
     dest: dest,
     src: src,
 
+    templates: {
+        dest: dest,
+        srcCopy: [
+            src + '/templates/**/*.html',
+            '!' + src + '/templates/index.html'
+        ],
+        srcReplace: [
+            src + '/templates/index.html'
+        ],
+        replace: {
+            patterns: [
+                {
+                    match: 'version',
+                    replacement: pkg.version
+                }
+            ]
+        }
+    },
     bump: {
         src: [
             './package.json'
@@ -79,6 +97,9 @@ module.exports = {
         dest: assets + '/img'
     },
     clean: {
+        html: [
+            dest + '/index.html'
+        ],
         assets: [
             assets + '/css/*',
             assets + '/img/*'

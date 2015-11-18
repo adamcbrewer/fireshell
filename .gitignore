@@ -39,6 +39,7 @@ $RECYCLE.BIN/
 ## Application
 temp
 app/assets/
+app/*.html
 src/js/libs
 
 ## Useful

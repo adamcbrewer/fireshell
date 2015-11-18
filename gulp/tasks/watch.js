@@ -15,10 +15,13 @@ gulp.task('watch', () => {
 
     gulp.watch(config.sass.watch, ['sass']);
 
+    gulp.watch(config.templates.srcCopy
+        .concat(config.templates.srcReplace), ['templates']);
+
     gulp.watch([
         config.images.srcRaster,
         config.images.srcSvg
-    ], ['images']);
+    ], ['images:notoptimised']);
 
     // Watch tasks not directly watched by gulp.watch
     gulp.start(['js:watchify']);
