@@ -7,9 +7,7 @@
  */
 'use strict';
 
-import gulp from 'gulp';
 import size from 'gulp-size';
-import config from '../config.js';
 import imagemin from 'gulp-imagemin';
 
 gulp.task('images', ['images:optimised']);

@@ -4,8 +4,6 @@
  */
 'use strict';
 
-import gulp from 'gulp';
-import config from '../config.js';
 import replace from 'gulp-replace-task';
 
 gulp.task('templates', ['templates:replace', 'templates:copy']);

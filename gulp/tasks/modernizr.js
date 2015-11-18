@@ -7,8 +7,6 @@
  */
 'use strict';
 
-import gulp from 'gulp';
-import config from '../config.js';
 import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
 import modernizr from 'gulp-modernizr';

@@ -7,10 +7,8 @@
  */
 'use strict';
 
-import gulp from 'gulp';
 import size from 'gulp-size';
 import sass from 'gulp-sass';
-import config from '../config.js';
 import rename from 'gulp-rename';
 import minifycss from 'gulp-minify-css';
 import sourcemaps from 'gulp-sourcemaps';

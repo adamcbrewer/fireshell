@@ -8,12 +8,10 @@
  */
 'use strict';
 
-import gulp from 'gulp';
 import size from 'gulp-size';
 import gutil from 'gulp-util';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
-import config from '../config.js';
 import babelify from 'babelify';
 import watchify from 'watchify';
 import sourcemaps from 'gulp-sourcemaps';

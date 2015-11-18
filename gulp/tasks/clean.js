@@ -7,8 +7,6 @@
 'use strict';
 
 import del from 'del';
-import gulp from 'gulp';
-import config from '../config.js';
 
 gulp.task('clean:assets', () => {
 

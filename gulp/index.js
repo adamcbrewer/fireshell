@@ -10,7 +10,11 @@
 
 import gulp from 'gulp';
 import gutil from 'gulp-util';
+import config from './config';
 import requireDir from 'require-dir';
+
+global.gulp = gulp;
+global.config = config;
 
 requireDir('./tasks', { recurse: true });
 
