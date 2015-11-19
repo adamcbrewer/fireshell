@@ -45,11 +45,12 @@ gulp.task('js', () => {
         .pipe(size({
             showFiles: config.size.showFiles,
             gzip: config.size.gzip,
-            title: "JS sizes:"
+            title: "JS payload:"
         }))
 
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sourcemaps.write('./'))
+
 
         .pipe(gulp.dest(config.js.dest));
 
@@ -78,8 +79,15 @@ function bundlify() {
         .pipe(source(config.js.outputFilename))
         .pipe(buffer())
 
+        .pipe(size({
+            showFiles: config.size.showFiles,
+            gzip: config.size.gzip,
+            title: "JS payload:"
+        }))
+
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sourcemaps.write('./'))
+
         .pipe(gulp.dest(config.js.dest));
 
     return pipeline;

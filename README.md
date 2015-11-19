@@ -46,9 +46,13 @@ Below are some familiar tasks for developing and building, but for more detail p
 
 Default task for building and watching development files for any changes made.
 
-### `$ gulp sass`
+### `$ gulp templates[:replace|:copy]`
 
-Creates Autoprefixed stylesheets with source maps. Also creates a stats file in JSON format.
+Runs a replace task and a copy task for HTML files.
+
+### `$ gulp css[:sass]`
+
+Creates Autoprefixed stylesheets with source maps.
 
 ### `$ gulp js`
 

@@ -11,7 +11,7 @@ gulp.task('build', ['build:prod']);
 gulp.task('build:dev', sequence(['clean'], [
     'templates',
     'modernizr',
-    'sass',
+    'css',
     'images:notoptimised',
     'js'
 ]));
@@ -19,7 +19,7 @@ gulp.task('build:dev', sequence(['clean'], [
 gulp.task('build:prod', sequence(['clean'], [
     'templates',
     'modernizr',
-    'sass',
+    'css',
     'images:optimised',
     'js'
 ]));

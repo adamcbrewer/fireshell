@@ -7,8 +7,6 @@
  */
 'use strict';
 
-import config from '../config.js';
-
 gulp.task('fonts', () => {
 
     let pipeline = gulp.src(config.fonts.src)

@@ -16,6 +16,9 @@ const config = {
     src: src
 };
 
+// The following extensions of config should
+// have corresponsing gulp tasks
+
 config.images = {
     srcRaster: src + '/img/{./,**/}*.{jpg,jpeg,png,gif}',
     srcSvg: src + '/img/{./,**/}*.svg',
@@ -47,7 +50,7 @@ config.bump = {
     ]
 };
 
-config.sass = {
+config.css = {
     src: src + '/sass/screen.scss',
     dest: assets + '/css/',
     basename: 'styles',
@@ -109,7 +112,8 @@ config.clean = {
     ],
     assets: [
         assets + '/css/*',
-        assets + '/img/*'
+        assets + '/img/*',
+        assets + '/fonts/*'
     ],
     js: [
         assets + '/js/*',
