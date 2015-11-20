@@ -62,7 +62,7 @@ Creates Autoprefixed stylesheets with source maps.
 
 Uses Browserify and Babel(ify) to bundle all javascript files, which can be written in ES6 if you wish.
 
-### `$ gulp images[:build|:vector|:raster]`
+### `$ gulp images[:optimised|:notoptimised|:vector|:raster|:symbols]`
 
 Image optimisation for rasters (jpg, png, gif) and vectors. 
 

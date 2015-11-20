@@ -17,8 +17,9 @@ gulp.task('watch', () => {
         .on('change', browserSync.reload);
 
     gulp.watch([
+            config.images.srcSvg,
             config.images.srcRaster,
-            config.images.srcSvg
+            config.images.srcSymbols,
         ], ['images:notoptimised'])
         .on('change', browserSync.reload);;
 

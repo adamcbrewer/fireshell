@@ -8,9 +8,16 @@
 'use strict';
 
 import size from 'gulp-size';
+import rename from 'gulp-rename';
+import svgstore from 'gulp-svgstore';
 import imagemin from 'gulp-imagemin';
 
 gulp.task('images', ['images:optimised']);
+
+gulp.task('images:optimised', [
+    'images:vector',
+    'images:raster'
+]);
 
 gulp.task('images:notoptimised', () => {
 
@@ -30,7 +37,7 @@ gulp.task('images:raster', () => {
         .pipe(imagemin(config.images.imagemin.raster))
         .pipe(size({
             showFiles: config.size.showFiles,
-            title: "Image size (raster):"
+            title: "Raster image sizes:"
         }))
         .pipe(gulp.dest(config.images.dest));
 
@@ -38,13 +45,13 @@ gulp.task('images:raster', () => {
 
 });
 
-gulp.task('images:vector', () => {
+gulp.task('images:vector', ['images:symbols'], () => {
 
     let pipeline = gulp.src(config.images.srcSvg)
         .pipe(imagemin(config.images.imagemin.vector))
         .pipe(size({
             showFiles: config.size.showFiles,
-            title: "Image size (vector):"
+            title: "SVG images sizes:"
         }))
         .pipe(gulp.dest(config.images.dest));
 
@@ -52,7 +59,20 @@ gulp.task('images:vector', () => {
 
 });
 
-gulp.task('images:optimised', [
-    'images:vector',
-    'images:raster'
-]);
+gulp.task('images:symbols', () => {
+
+    let pipeline = gulp.src(config.images.srcSymbols)
+        .pipe(imagemin(config.images.imagemin.vector))
+        .pipe(svgstore({
+            inlineSvg: true
+        }))
+        .pipe(size({
+            showFiles: config.size.showFiles,
+            title: "SVG spritesheet size:"
+        }))
+        .pipe(rename(config.images.symbolsName))
+        .pipe(gulp.dest(config.images.dest));
+
+    return pipeline;
+
+});

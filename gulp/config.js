@@ -40,7 +40,9 @@ config.serve = {
 
 config.images = {
     srcRaster: `${src}/img/{./,**/}*.{jpg,jpeg,png,gif}`,
-    srcSvg: `${src}/img/{./,**/}*.svg`,
+    srcSvg: `${src}/img/{./,**/|!symbols/}*.svg`,
+    srcSymbols: `${src}/img/symbols/*.svg`,
+    symbolsName: { basename: 'symbols', suffix: '.min' },
     dest: `${assets}/img`,
     imagemin: {
         raster: {
@@ -74,7 +76,12 @@ config.templates = {
             {
                 match: 'version',
                 replacement: pkg.version
-            }
+            },
+            // Uncomment if reading files
+            // {
+            //   match: 'symbols',
+            //   replacement: fs.readFileSync(`${assets}/img/${config.images.symbolsName.basename}${config.images.symbolsName.suffix}.svg`, 'utf8')
+            // }
         ]
     }
 };
