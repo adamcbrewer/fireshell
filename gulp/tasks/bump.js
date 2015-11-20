@@ -9,7 +9,6 @@
 import fs from 'fs';
 import git from 'gulp-git';
 import bump from 'gulp-bump';
-import gutil from 'gulp-util';
 import tagVersion from 'gulp-tag-version';
 
 gulp.task('bump:version', () => {

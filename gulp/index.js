@@ -15,6 +15,7 @@ import requireDir from 'require-dir';
 import browserSync from 'browser-sync';
 
 global.gulp = gulp;
+global.gutil = gutil;
 global.config = config;
 global.browserSync = browserSync.create();
 

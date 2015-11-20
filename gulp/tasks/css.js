@@ -13,7 +13,6 @@ import rename from 'gulp-rename';
 import minifycss from 'gulp-minify-css';
 import stylestats from 'gulp-stylestats';
 import sourcemaps from 'gulp-sourcemaps';
-import handleErrors from '../util/handle-errors';
 import autoprefixer from 'gulp-autoprefixer';
 
 gulp.task('css', ['fonts', 'css:sass']);
@@ -25,8 +24,10 @@ gulp.task('css:sass', () => {
         .pipe(sourcemaps.init())
 
         .pipe(sass({
-            outputStyle: 'expanded'
-        }).on('error', sass.logError))
+                outputStyle: 'expanded'
+            })
+            .on('error', gutil.log.bind(gutil, gutil.colors.bold.red('[ SASS Error]')))
+        )
 
         // autoprefix, minify and sourcemaps
         .pipe(autoprefixer(config.css.autoprefixer))
@@ -42,7 +43,7 @@ gulp.task('css:sass', () => {
         .pipe(size({
             showFiles: config.size.showFiles,
             gzip: config.size.gzip,
-            title: "CSS payload:"
+            title: gutil.colors.bold.yellow('[ CSS payload ]')
         }))
         .pipe(stylestats(config.stylestats))
         .pipe(rename({ basename: config.css.basename + '.stats' }))

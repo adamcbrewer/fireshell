@@ -16,7 +16,8 @@ gulp.task('images', ['images:optimised']);
 
 gulp.task('images:optimised', [
     'images:vector',
-    'images:raster'
+    'images:raster',
+    'images:symbols'
 ]);
 
 gulp.task('images:notoptimised', () => {
@@ -37,7 +38,7 @@ gulp.task('images:raster', () => {
         .pipe(imagemin(config.images.imagemin.raster))
         .pipe(size({
             showFiles: config.size.showFiles,
-            title: "Raster image sizes:"
+            title: gutil.colors.bold.yellow('[ Raster image payload ]')
         }))
         .pipe(gulp.dest(config.images.dest));
 
@@ -51,7 +52,7 @@ gulp.task('images:vector', ['images:symbols'], () => {
         .pipe(imagemin(config.images.imagemin.vector))
         .pipe(size({
             showFiles: config.size.showFiles,
-            title: "SVG images sizes:"
+            title: gutil.colors.bold.yellow('[ SVG image payload ]')
         }))
         .pipe(gulp.dest(config.images.dest));
 
@@ -68,7 +69,7 @@ gulp.task('images:symbols', () => {
         }))
         .pipe(size({
             showFiles: config.size.showFiles,
-            title: "SVG spritesheet size:"
+            title: gutil.colors.bold.yellow('[ SVG symbol payload ]')
         }))
         .pipe(rename(config.images.symbolsName))
         .pipe(gulp.dest(config.images.dest));

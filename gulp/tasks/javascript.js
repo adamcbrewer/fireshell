@@ -37,7 +37,7 @@ gulp.task('js', () => {
         .transform(babelify)
         .bundle()
 
-        .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+        .on('error', gutil.log.bind(gutil, gutil.colors.bold.red('[ Browserify Error ]')))
 
         .pipe(source(config.js.outputFilename))
         .pipe(buffer())
@@ -45,7 +45,7 @@ gulp.task('js', () => {
         .pipe(size({
             showFiles: config.size.showFiles,
             gzip: config.size.gzip,
-            title: "JS payload:"
+            title: gutil.colors.bold.yellow('[ JS payload ]')
         }))
 
         .pipe(sourcemaps.init({ loadMaps: true }))
@@ -74,7 +74,7 @@ function bundlify() {
 
         .bundle()
 
-        .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+        .on('error', gutil.log.bind(gutil, gutil.colors.bold.red('[ Browserify Error ]')))
 
         .pipe(source(config.js.outputFilename))
         .pipe(buffer())
@@ -84,7 +84,7 @@ function bundlify() {
         .pipe(size({
             showFiles: config.size.showFiles,
             gzip: config.size.gzip,
-            title: "JS payload:"
+            title: gutil.colors.bold.yellow('[ JS payload ]')
         }))
 
         .pipe(sourcemaps.init({ loadMaps: true }))
@@ -105,7 +105,7 @@ function getWatchifyInstance () {
         w = watchify(browserify(options));
         w.transform(babelify);
         w.on('update', bundlify);
-        w.on('log', gutil.log);
+        w.on('log', gutil.log.bind(gutil, gutil.colors.bold.yellow('[ Watchify ]')));
     }
 
     return w;
