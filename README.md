@@ -46,6 +46,10 @@ Below are some familiar tasks for developing and building, but for more detail p
 
 Default task for building and watching development files for any changes made.
 
+### `$ gulp serve`
+
+Creates a BrowserSync server instance.
+
 ### `$ gulp templates[:replace|:copy]`
 
 Runs a replace task and a copy task for HTML files.

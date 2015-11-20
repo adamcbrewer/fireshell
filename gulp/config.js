@@ -13,11 +13,30 @@ let assets = `${dest}/assets`
 const config = {
     pkg: pkg,
     dest: dest,
-    src: src
+    src: src,
+    assets: assets
 };
 
 // The following extensions of config should
 // have corresponsing gulp tasks
+
+config.serve = {
+    options: {
+        server: dest,
+        // or...
+        // proxy: 'local.yourapp.com',
+        open: true,
+        port: 8888,
+        https: false,
+        notify: false,
+        logLevel: 'info',
+        reloadOnRestart: true,
+        logPrefix: `${pkg.name} - v${pkg.version}`,
+        ui: {
+            port: 8889
+        }
+    }
+};
 
 config.images = {
     srcRaster: `${src}/img/{./,**/}*.{jpg,jpeg,png,gif}`,
@@ -45,10 +64,10 @@ config.templates = {
     dest: dest,
     srcCopy: [
         `${src}/templates/**/*.html`,
-        `!${src}/templates/index.htm`
+        `!${src}/templates/index.html`
     ],
     srcReplace: [
-        `${src}/templates/index.htm`
+        `${src}/templates/index.html`
     ],
     replace: {
         patterns: [

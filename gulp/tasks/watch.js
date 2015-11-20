@@ -13,12 +13,14 @@ gulp.task('watch', () => {
     gulp.watch(config.css.watch, ['css']);
 
     gulp.watch(config.templates.srcCopy
-        .concat(config.templates.srcReplace), ['templates']);
+        .concat(config.templates.srcReplace), ['templates'])
+        .on('change', browserSync.reload);
 
     gulp.watch([
-        config.images.srcRaster,
-        config.images.srcSvg
-    ], ['images:notoptimised']);
+            config.images.srcRaster,
+            config.images.srcSvg
+        ], ['images:notoptimised'])
+        .on('change', browserSync.reload);;
 
     // Watch tasks not directly watched by gulp.watch
     gulp.start(['js:watchify']);

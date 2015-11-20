@@ -79,6 +79,8 @@ function bundlify() {
         .pipe(source(config.js.outputFilename))
         .pipe(buffer())
 
+        .pipe(browserSync.stream())
+
         .pipe(size({
             showFiles: config.size.showFiles,
             gzip: config.size.gzip,

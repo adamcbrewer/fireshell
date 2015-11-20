@@ -12,9 +12,11 @@ import gulp from 'gulp';
 import gutil from 'gulp-util';
 import config from './config';
 import requireDir from 'require-dir';
+import browserSync from 'browser-sync';
 
 global.gulp = gulp;
 global.config = config;
+global.browserSync = browserSync.create();
 
 requireDir('./tasks', { recurse: true });
 

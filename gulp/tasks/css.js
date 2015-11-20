@@ -36,6 +36,8 @@ gulp.task('css:sass', () => {
         .pipe(rename({ basename: config.css.basename, suffix: '.min' }))
         .pipe(gulp.dest(config.css.dest))
 
+        .pipe(browserSync.stream())
+
         // Style statistics
         .pipe(size({
             showFiles: config.size.showFiles,
