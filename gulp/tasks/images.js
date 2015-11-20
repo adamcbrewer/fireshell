@@ -27,12 +27,7 @@ gulp.task('images:notoptimised', () => {
 gulp.task('images:raster', () => {
 
     let pipeline = gulp.src(config.images.srcRaster)
-        .pipe(imagemin({
-            optimizationLevel: 4,
-            progressive: true,
-            interlaced: true,
-            pngquant: true
-        }))
+        .pipe(imagemin(config.images.imagemin.raster))
         .pipe(size({
             showFiles: config.size.showFiles,
             title: "Image size (raster):"
@@ -46,14 +41,7 @@ gulp.task('images:raster', () => {
 gulp.task('images:vector', () => {
 
     let pipeline = gulp.src(config.images.srcSvg)
-        .pipe(imagemin({
-            svgoPlugins: [
-                // More options here: https://github.com/svg/svgo
-                { removeViewBox: false },
-                { removeUselessStrokeAndFill: false },
-                { removeEmptyAttrs: false }
-            ],
-        }))
+        .pipe(imagemin(config.images.imagemin.vector))
         .pipe(size({
             showFiles: config.size.showFiles,
             title: "Image size (vector):"

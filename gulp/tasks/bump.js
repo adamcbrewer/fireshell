@@ -44,8 +44,7 @@ gulp.task('bump', ['bump:version'], () => {
 
     // The package file is cached by Gulp at runtime, so even after
     // bumping the version we still have to read it synchronously
-    let pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-    let version = `v${pkg.version}`;
+    let version = `v${config.pkg.version}`;
 
     let pipeline = gulp.src('./package.json')
         .pipe(git.commit(version))

@@ -8,7 +8,7 @@ import pkg from '../package.json';
 
 let dest = './app';
 let src = './src';
-let assets = dest + '/assets'
+let assets = `${dest}/assets`
 
 const config = {
     pkg: pkg,
@@ -20,19 +20,35 @@ const config = {
 // have corresponsing gulp tasks
 
 config.images = {
-    srcRaster: src + '/img/{./,**/}*.{jpg,jpeg,png,gif}',
-    srcSvg: src + '/img/{./,**/}*.svg',
-    dest: assets + '/img'
+    srcRaster: `${src}/img/{./,**/}*.{jpg,jpeg,png,gif}`,
+    srcSvg: `${src}/img/{./,**/}*.svg`,
+    dest: `${assets}/img`,
+    imagemin: {
+        raster: {
+            optimizationLevel: 4,
+            progressive: true,
+            interlaced: true,
+            pngquant: true
+        },
+        vector: {
+            svgoPlugins: [
+                // More options here: https://github.com/svg/svgo
+                { removeViewBox: false },
+                { removeUselessStrokeAndFill: false },
+                { removeEmptyAttrs: false }
+            ]
+        }
+    }
 };
 
 config.templates = {
     dest: dest,
     srcCopy: [
-        src + '/templates/**/*.html',
-        '!' + src + '/templates/index.html'
+        `${src}/templates/**/*.html`,
+        `!${src}/templates/index.htm`
     ],
     srcReplace: [
-        src + '/templates/index.html'
+        `${src}/templates/index.htm`
     ],
     replace: {
         patterns: [
@@ -51,10 +67,10 @@ config.bump = {
 };
 
 config.css = {
-    src: src + '/sass/screen.scss',
-    dest: assets + '/css/',
+    src: `${src}/sass/screen.scss`,
+    dest: `${assets}/css/`,
     basename: 'styles',
-    watch: src + '/sass/**/*',
+    watch: `${src}/sass/**/*`,
     autoprefixer: {
         browsers: [
             'last 2 version',
@@ -66,16 +82,16 @@ config.css = {
 };
 
 config.fonts = {
-    src: src + '/fonts/*',
-    dest: assets + '/fonts/'
+    src: `${src}/fonts/*`,
+    dest: `${assets}/fonts`
 };
 
 config.js = {
-    dest: assets + '/js',
+    dest: `${assets}/js`,
     outputFilename: 'scripts.min.js',
     browserify: {
         entries: [
-            src + '/js/app.js'
+            `${src}/js/app.js`
         ],
         debug: true
     }
@@ -83,10 +99,10 @@ config.js = {
 
 config.modernizr = {
     src: [
-        src + '/js/**/*.js',
-        src + '/sass/**/*.scss',
+        `${src}/js/**/*.js`,
+        `${src}/sass/**/*.scss`,
     ],
-    dest: assets + '/js',
+    dest: `${assets}/js`,
     options: {
         cache : false,
         uglify : false,
@@ -108,15 +124,15 @@ config.modernizr = {
 
 config.clean = {
     html: [
-        dest + '/index.html'
+        `${dest}/index.html`
     ],
     assets: [
-        assets + '/css/*',
-        assets + '/img/*',
-        assets + '/fonts/*'
+        `${assets}/css/*`,
+        `${assets}/img/*`,
+        `${assets}/fonts/`
     ],
     js: [
-        assets + '/js/*',
+        `${assets}/js/*`,
     ]
 };
 
