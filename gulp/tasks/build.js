@@ -12,6 +12,7 @@ gulp.task('build:dev', sequence(['clean'], [
     'templates',
     'modernizr',
     'css',
+    'favicon',
     'images:notoptimised',
     'js'
 ]));
@@ -20,6 +21,7 @@ gulp.task('build:prod', sequence(['clean'], [
     'templates',
     'modernizr',
     'css',
+    'favicon',
     'images:optimised',
     'js'
 ]));

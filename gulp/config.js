@@ -154,19 +154,9 @@ config.modernizr = {
 };
 
 config.clean = {
-    html: [
-        `${dest}/index.html`
-    ],
-    assets: [
-        `${assets}/css/*`,
-        `${assets}/img/*`,
-        `${assets}/fonts/`
-    ],
-    favicons: [
-        `${dest}/*.ico`
-    ],
-    js: [
-        `${assets}/js/*`,
+    build: [
+        `${dest}/**/*`,
+        `!${dest}/.gitignore`,
     ]
 };
 
