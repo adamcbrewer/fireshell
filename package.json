@@ -42,6 +42,6 @@
   },
   "dependencies": {},
   "scripts": {
-    "postinstall": "gulp build"
+    "postinstall": "gulp"
   }
 }

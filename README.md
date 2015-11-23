@@ -1,6 +1,6 @@
 # Fireshell
 
-A front-end bootstrap with a modern workflow, which includes: Gulp, SASS, Autoprefixer, image optimisation with Imagemin, Modernizr, JS modules using Browserify and ES6 support using Babel.
+Gulp, SASS, Autoprefixer, image optimisation, svg symbols, Modernizr, JS modules (Browserify) and ES6 support using Babel.
 
 ## Your New Project
 
@@ -28,10 +28,8 @@ $ git push -u origin master
 
 ## Getting Started
 
-After freshly cloning run this command, which installs all the required NPM files and runs re-setup tasks:
-
 ```bash
-$ ./init.sh
+$ npm install
 ```
 
 ## Gulp / Tasks
@@ -44,11 +42,15 @@ Below are some familiar tasks for developing and building, but for more detail p
 
 ### `$ gulp`
 
-Default task for building and watching development files for any changes made.
+Default task, alias for `build:dev`.
+
+### `$ gulp watch`
+
+First runs the build task before watching files for changes.
 
 ### `$ gulp serve`
 
-Creates a BrowserSync server instance.
+First runs the watch task before creating a BrowserSync server instance. 
 
 ### `$ gulp templates[:replace|:copy]`
 
@@ -72,13 +74,13 @@ Run on it's own will only copy the images to the build directory. Adding either 
 
 Empty the relevant directories. `[:assets]` will remove all build assets.
 
-### `$ gulp bower`
-
-Any third-party or vendor files installed via Bower and added to the `/gulp/config.js` file will be copied to the specified location shown in the config settings.
-
 ### `$ gulp modernizr`
 
 Generates and uglifies a new Modernizr build based on the files it's specified to scan and the forced options within the config settings.
+
+### `$ gulp build[:dev|:prod]`
+
+Empties and creates new, production-ready build files.
 
 ### `$ gulp bump`
 
@@ -90,11 +92,3 @@ $ gulp bump --minor # 0.X.0
 $ gulp bump --major # X.0.0
 $ gulp bump --version=1.2.3
 ```
-
-### `$ gulp build`
-
-Empties and creates new, production-ready build files.
-
-## Credits
-
-This FireShell was originally built by [Todd Motto](//github.com/toddmotto) and it's contributors. This fork is optimised for my on workflow.
