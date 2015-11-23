@@ -6,7 +6,7 @@
  */
 'use strict';
 
-gulp.task('serve', ['build', 'watch'], function() {
+gulp.task('serve', ['watch'], function() {
 
     browserSync.init(config.serve.options);
 

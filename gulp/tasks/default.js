@@ -6,8 +6,4 @@
  */
 'use strict';
 
-import sequence from 'gulp-sequence';
-
-gulp.task('default', sequence(['build:dev'], [
-    'watch'
-]));
+gulp.task('default', ['build:dev']);

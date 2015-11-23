@@ -8,7 +8,9 @@
  */
 'use strict';
 
-gulp.task('watch', () => {
+gulp.task('w', ['watch']);
+
+gulp.task('watch', ['build:dev'], () => {
 
     gulp.watch(config.css.watch, ['css']);
 
