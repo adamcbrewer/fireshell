@@ -62,6 +62,11 @@ config.images = {
     }
 };
 
+config.favicon = {
+    src: `${src}/favicon/*`,
+    dest: `${dest}`
+};
+
 config.templates = {
     dest: dest,
     srcCopy: [
@@ -156,6 +161,9 @@ config.clean = {
         `${assets}/css/*`,
         `${assets}/img/*`,
         `${assets}/fonts/`
+    ],
+    favicons: [
+        `${dest}/*.ico`
     ],
     js: [
         `${assets}/js/*`,
