@@ -82,6 +82,10 @@ Generates and uglifies a new Modernizr build based on the files it's specified t
 
 Empties and creates new, production-ready build files.
 
+### `$ gulp test`
+
+Executes the Mocha testing suite using Chai.
+
 ### `$ gulp bump`
 
 Bump, commit and tag the `package.json` version. The following arguments are supported:

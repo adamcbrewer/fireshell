@@ -1,14 +1,13 @@
 'use strict';
 
+/**
+ * Either import directly form the modules directory, or you can install
+ * third-party libraries via npm (as a dependency) and import them using
+ * just the names:
+ *
+ * <code>global.$ = require('jquery');</code>
+ */
+
 import Site from './modules/site.js';
 
-// Change this to match the project directory
-new Site('/');
-
-// For importing any third-party libraries:
-//
-// In the terminal:
-// $ npm install --save jquery
-//
-// In this app:
-// global.$ = require('jquery');
+global.Site = new Site();

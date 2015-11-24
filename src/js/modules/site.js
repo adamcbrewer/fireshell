@@ -1,12 +1,18 @@
 'use strict';
 
+let _defaultOptions = {
+    dir: '/'
+};
+
 class Site {
 
-    constructor (dir) {
+    constructor (options) {
 
-        dir = dir || '/';
+        options = options || {};
 
-        this.path = location.origin + dir;
+        this.options = Object.assign({}, _defaultOptions, options);
+
+        this.path = location.origin + this.options.dir;
         this.ua = navigator.userAgent;
         this.platform = navigator.platform;
 

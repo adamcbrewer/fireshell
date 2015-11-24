@@ -8,12 +8,14 @@
  */
 'use strict';
 
+import gulpIf from 'gulp-if';
 import gulp from 'gulp';
 import gutil from 'gulp-util';
 import config from './config';
 import requireDir from 'require-dir';
 import browserSync from 'browser-sync';
 
+global.gulpIf = gulpIf;
 global.gulp = gulp;
 global.gutil = gutil;
 global.config = config;
