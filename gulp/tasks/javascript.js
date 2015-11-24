@@ -79,7 +79,7 @@ function bundlify() {
         .pipe(source(config.js.outputFilename))
         .pipe(buffer())
 
-        .pipe(browserSync.stream())
+        .pipe(gulpIf(browserSync.active, browserSync.reload({ stream: true })))
 
         .pipe(size({
             showFiles: config.size.showFiles,

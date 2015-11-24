@@ -13,6 +13,7 @@ gulp.task('build:dev', sequence(['clean'], [
     'modernizr',
     'css',
     'favicon',
+    'images:symbols',
     'images:notoptimised',
     'js'
 ]));

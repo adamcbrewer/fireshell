@@ -20,10 +20,12 @@ gulp.task('watch', ['build:dev'], () => {
 
     gulp.watch([
             config.images.srcSvg,
-            config.images.srcRaster,
-            config.images.srcSymbols,
+            config.images.srcRaster
         ], ['images:notoptimised'])
-        .on('change', browserSync.reload);;
+        .on('change', browserSync.reload);
+
+    gulp.watch([config.images.srcSymbols], ['images:symbols'])
+        .on('change', browserSync.reload);
 
     // Watch tasks not directly watched by gulp.watch
     gulp.start(['js:watchify']);
