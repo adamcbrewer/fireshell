@@ -45,6 +45,7 @@
   },
   "dependencies": {},
   "scripts": {
+    "preinstall": "bower install",
     "postinstall": "gulp && gulp test"
   }
 }
